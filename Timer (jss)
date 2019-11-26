@@ -1,0 +1,96 @@
+// {The timer}
+
+import React, { useState, Component }  from 'react';
+import ReactDOM from 'react-dom';
+import './App.css';
+
+// {Special library, also downloaded by npm (like world countries)}
+// {Skulle behöva importera , { CountdownApi } men funkar ej}
+import Countdown from 'react-countdown-now';
+
+function App() {
+
+// {---------------Variables--------------}
+// {Like a boolean that keeps track of when the timer is started}
+  let StartedOrNot = false;
+  const CompletedTraining = () => <span>Completed training!</span>;
+  let PausedOrNot = false;
+// {Supposed to change the seconds needed}
+  const [TimerSeconds, setCount] = useState(1800000);
+  //{const [PausedOrNot, setTrue] = useState(true);}
+
+// {Function that changes some variables: state: usestate timerseconds}
+  function startTimer() {
+    StartedOrNot = true;
+    setCount(TimerSeconds);
+    console.log("hej");
+    console.log(TimerSeconds);
+
+    // {Here it was saker depending on texten i knappen, if-satser}
+    var changeText = document.getElementById('Starttext');
+
+    if (changeText.innerHTML === "Start") {
+      changeText.innerHTML = "Paus";
+    }
+    else if (changeText.innerHTML === "Paus") {
+      changeText.innerHTML = "Continue";
+       PausedOrNot = true;
+    }
+    else {
+      changeText.innerHTML = "Paus";
+      PausedOrNot = false;
+    }
+
+  }
+
+// {The renderer: Changes the "clock": Countdown}
+  const renderer = ({minutes, seconds, completed}) => {
+
+    if (StartedOrNot === false) {
+      return <span>00:00</span>;
+    }
+    else if (PausedOrNot === true) {
+      return <span>timeleft</span>;
+    }
+    else if (completed) {
+      return <CompletedTraining />; // {Here ska den go till en ny sida}
+    } 
+    else {
+      return <span>{minutes}:{seconds}</span>;
+    }
+  };
+
+  return (
+    <div>
+    <button id="CancelButton">
+    <p id="CancelText">Cancel</p>
+    </button>
+    <h3 id="NameOfEx">Name of the exercise</h3>
+    <p id="DescriptionText">Description... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    Nam vitae consequat nibh. Sed volutpat ultrices quam non semper. Duis tellus 
+    risus, congue eget lectus id, ultricies interdum quam. Mauris sed luctus augue. 
+    Duis gravida ac odio vitae ultricies. Pellentesque molestie orci pretium 
+    interdum porttitor. Orci varius natoque penatibus et magnis dis parturient 
+    montes, nascetur ridiculus mus. Maecenas efficitur sit amet ipsum quis suscipit. 
+    Cras commodo sodales erat. Morbi dui velit, fermentum ut consectetur a, 
+    tristique vitae nibh. Proin porta eu ipsum sagittis suscipit. 
+    Aliquam nec elit eu justo egestas ullamcorper vel non nisi.
+     Vivamus fringilla accumsan facilisis. In hac habitasse.</p>    
+     <p>Bild på hund</p>
+
+    <div id="TheTimerDiv">
+    
+    <button id="StartButton" onClick={startTimer}>
+    <p id="Starttext">Start</p>
+    </button>
+    <br></br>
+    <Countdown date={Date.now() + TimerSeconds}
+    renderer={renderer}
+    />
+    <br></br>
+    </div>
+</div>
+  );
+}
+
+export default App;
