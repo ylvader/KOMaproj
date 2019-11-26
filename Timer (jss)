@@ -1,4 +1,5 @@
-// {The timer}
+// {The timer 26 november}
+// Det som behöver fixas: Paus-funktionerna som ska importeras från CountdownApi och inte funkar
 
 import React, { useState, Component }  from 'react';
 import ReactDOM from 'react-dom';
