@@ -1,0 +1,74 @@
+body {
+  background-color: #FBD0C0;
+}
+
+#CancelButton {
+background: #FFFFFF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 16px;
+}
+
+#CancelText {
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 15px;
+line-height: 18px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #E77474;
+}
+
+#NameOfEx {
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #E77474;
+} 
+
+#DescriptionText {
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 16px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #E77474;
+}
+
+#TheTimerDiv {
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 48px;
+line-height: 56px;
+align-items: center;
+text-align: center;
+color: #E77474;
+}
+
+#StartButton {
+background: #FFFFFF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+
+#Starttext {
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+line-height: 35px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #E77474;
+}
